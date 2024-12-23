@@ -23,6 +23,9 @@ class UpdateBrgViewModel (
 
     private val suplier = NamaSuplier.suplier
 
+    var updateUIState by mutableStateOf(BrgUIState())
+        private set
+
 
 }
 
