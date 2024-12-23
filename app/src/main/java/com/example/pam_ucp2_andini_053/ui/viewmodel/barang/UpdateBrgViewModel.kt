@@ -21,6 +21,9 @@ class UpdateBrgViewModel (
     private val repositoryBrg: RepositoryBrg
 ) : ViewModel() {
 
+    private val suplier = NamaSuplier.suplier
+
+
 }
 
 fun Barang.toUIStateBrg(): BrgUIState = BrgUIState(
