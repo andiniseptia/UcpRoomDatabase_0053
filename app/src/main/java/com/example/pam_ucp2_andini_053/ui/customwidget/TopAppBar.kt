@@ -38,6 +38,25 @@ fun TopAppBar(
             .background(color = colorResource(id = R.color.primary)),
         contentAlignment = Alignment.Center
     ) {
+        if (showBackButton) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TextButton(
+                    onClick = onBack,
+                    modifier = Modifier.align(Alignment.CenterVertically).padding(35.dp)
+                ) {
+                    Text(
+                        text = "Kembali",
+                        color = Color.White
+                    )
+                }
+                Spacer(modifier.weight(2f))
+            }
+        }
+
 
     }
 }
