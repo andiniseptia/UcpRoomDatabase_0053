@@ -11,6 +11,12 @@ import com.example.pam_ucp2_andini_053.repository.RepositorySpl
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
+class SuplierViewModel (private val repositorySpl: RepositorySpl) : ViewModel() {
+    var uiState by mutableStateOf(SplUIState())
+
+
+
+}
 
 data class SplUIState (
     val suplierEvent: SuplierEvent = SuplierEvent(),
