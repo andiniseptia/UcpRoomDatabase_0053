@@ -49,7 +49,46 @@ import kotlinx.coroutines.launch
 import com.example.pam_ucp2_andini_053.ui.customwidget.TopAppBar
 import com.example.pam_ucp2_andini_053.ui.viewmodel.PenyediaViewModel
 
+@Composable
+fun HomeSplView(
+    viewModel: HomeSplViewModel = viewModel(factory = PenyediaViewModel.Factory),
+    onAddSpl: () -> Unit = { },
+    onBack: () -> Unit = { },
+    modifier: Modifier
+) {
+    Scaffold (
+        topBar = {
+            TopAppBar(
+                judul = "Daftar Suplier",
+                showBackButton = true,
+                onBack = onBack,
+                modifier = modifier
+            )
+        },
+        floatingActionButton =  {
+            FloatingActionButton(
+                onClick = onAddSpl,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(16.dp),
+                containerColor = colorResource(id = R.color.primary),
+                contentColor = Color.White
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Tambah Suplier",
+                    )
+            }
+        }
+    ) { innerPadding ->
+        val homeUiStateSpl by viewModel.homeUiStateSpl.collectAsState()
 
+        BodyHomeSplView(
+            homeUiStateSpl = homeUiStateSpl,
+            onClick = { },
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
 
 @Composable
 fun BodyHomeSplView(
