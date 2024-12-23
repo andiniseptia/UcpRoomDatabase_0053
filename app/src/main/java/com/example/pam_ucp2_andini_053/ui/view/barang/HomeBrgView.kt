@@ -49,5 +49,71 @@ fun CardBrg(
         else -> colorResource(id = R.color.card11)
     }
 
+    Card(
+        onClick = onClick,
+        colors = CardDefaults.cardColors(containerColor = cardColor),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(8.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(imageVector = Icons.Filled.DateRange, contentDescription = "Cart Icon", tint = Color.White)
+                Spacer(modifier = Modifier.padding(4.dp))
+                Text(
+                    text = brg.nama,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+                )
+            }
 
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(imageVector = Icons.Filled.Info, contentDescription = "Info Icon", tint = Color.White)
+                Spacer(modifier = Modifier.padding(4.dp))
+                Text(
+                    text = brg.harga,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+                )
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(imageVector = Icons.Filled.ShoppingCart, contentDescription = "Info Icon", tint = Color.White)
+                Spacer(modifier = Modifier.padding(4.dp))
+                Text(
+                    text = brg.stok,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+                )
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(imageVector = Icons.Filled.Person, contentDescription = "Home Icon", tint = Color.White)
+                Spacer(modifier = Modifier.padding(4.dp))
+                Text(
+                    text = brg.namaSuplier,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+                )
+            }
+        }
+    }
 }
