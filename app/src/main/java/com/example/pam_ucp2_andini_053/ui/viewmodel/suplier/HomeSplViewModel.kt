@@ -29,6 +29,15 @@ class HomeSplViewModel (
             emit(HomeUiStateSpl(isLoading = true))
             delay(900)
         }
+        .catch {
+            emit(
+                HomeUiStateSpl(
+                    isLoading = false,
+                    isError = true,
+                    errorMessage = it.message ?: "Terjadi kesalahan"
+                )
+            )
+        }
 
 }
 
