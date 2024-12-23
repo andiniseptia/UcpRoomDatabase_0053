@@ -13,7 +13,12 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 
+class HomeSplViewModel (
+    private val repositorySpl: RepositorySpl
+) : ViewModel() {
 
+
+}
 
 data class HomeUiStateSpl (
     val listSpl: List<Suplier> = listOf(),
