@@ -77,6 +77,10 @@ class UpdateBrgViewModel (
                     )
                 }
             }
+        } else {
+            updateUIState = updateUIState.copy(
+                snackBarMessage = "Data gagal diupdate"
+            )
         }
     }
 
