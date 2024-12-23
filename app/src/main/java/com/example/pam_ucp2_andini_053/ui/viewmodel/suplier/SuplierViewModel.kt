@@ -57,7 +57,9 @@ class SuplierViewModel (private val repositorySpl: RepositorySpl) : ViewModel() 
         }
     }
 
-
+    fun resetSnackBarMessage(){
+        uiState = uiState.copy(snackBarMessage = null)
+    }
 
 }
 
