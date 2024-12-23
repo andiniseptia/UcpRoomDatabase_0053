@@ -40,6 +40,23 @@ fun TopAppBarHome(){
             )
     )
     {
+        Row (
+            modifier = Modifier.fillMaxWidth().padding(20.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = "Menu",
+                    modifier = Modifier
+                        .padding(top = 20.dp)
+                        .size(30.dp),
+                    tint = Color.White
+                )
 
+            }
+
+        }
     }
 }
