@@ -12,4 +12,9 @@ object DestinasiHomeBarang : AlamatNavigasi {
     override val route = "homeBrg"
 }
 
+object DestinasiDetailBarang : AlamatNavigasi {
+    override val route = "detail"
+    const val ID = "id"
+    val routesWithArg = "$route/{$ID}" // Rute ini membutuhkan argumen ID
+}
 
