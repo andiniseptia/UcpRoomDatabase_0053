@@ -40,6 +40,107 @@ fun PengelolaHalaman(
             )
         }
 
+        composable(
+            route = DestinasiHomeBarang.route
+        ) {
+            HomeBrgView(
+                onBack = {
+                    navController.popBackStack()
+                },
+                onAddBrg = {
+                    navController.navigate(DestinasiInsert.route)
+                },
+                onDetailClick = { id ->
+                    navController.navigate("${DestinasiDetailBarang.route}/$id")
+                },
+                modifier = modifier
+            )
+        }
 
+
+        composable(
+            route = DestinasiInsert.route
+        ) {
+            insertBrgView(
+                onBack = {
+                    navController.popBackStack()
+                },
+                onNavigate = {
+                    navController.popBackStack()
+                },
+                modifier = modifier
+            )
+        }
+
+        composable(
+            DestinasiDetailBarang.routesWithArg,
+            arguments = listOf(
+                navArgument(DestinasiDetailBarang.ID) {
+                    type = NavType.IntType })
+        ) {
+            val id = it.arguments?.getInt(DestinasiDetailBarang.ID)
+            id?.let { id ->
+                DetailBrgView(
+                    onBack = {
+                        navController.popBackStack()
+                    },
+                    onEditClick = {
+                        navController.navigate("${DestinasiUpdateBarang.route}/$it")
+                    },
+                    modifier = modifier,
+                    onDeleteClick = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+
+        }
+
+        composable(
+            DestinasiUpdateBarang.routesWithArg,
+            arguments = listOf(
+                navArgument(DestinasiUpdateBarang.ID) {
+                    type = NavType.IntType
+                }
+            )
+        ) {
+            UpdateBrgView(
+                onBack = {
+                    navController.popBackStack()
+                },
+                onNavigate = {
+                    navController.popBackStack()
+                },
+                modifier = modifier,
+            )
+        }
+
+        composable(
+            route = DestinasiHomeSuplier.route
+        ) {
+            HomeSplView(
+                onBack = {
+                    navController.popBackStack()
+                },
+                onAddSpl = {
+                    navController.navigate(DestinasiInsertSpl.route)
+                },
+                modifier = modifier
+            )
+        }
+
+        composable(
+            route = DestinasiInsertSpl.route
+        ) {
+            InsertSplView(
+                onBack = {
+                    navController.popBackStack()
+                },
+                onNavigate = {
+                    navController.popBackStack()
+                },
+                modifier = modifier
+            )
+        }
     }
 }
