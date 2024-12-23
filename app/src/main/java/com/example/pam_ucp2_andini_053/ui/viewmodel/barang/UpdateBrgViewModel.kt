@@ -16,6 +16,12 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
+class UpdateBrgViewModel (
+    savedStateHandle: SavedStateHandle,
+    private val repositoryBrg: RepositoryBrg
+) : ViewModel() {
+
+}
 
 fun Barang.toUIStateBrg(): BrgUIState = BrgUIState(
     barangEvent = this.toDetailUiEvent(),
