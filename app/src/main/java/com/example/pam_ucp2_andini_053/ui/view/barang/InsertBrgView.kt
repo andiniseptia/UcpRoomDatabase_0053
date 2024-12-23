@@ -128,6 +128,41 @@ fun FormBarang(
             color = Color.Red
         )
 
+        var selectedSuplier by remember { mutableStateOf(barangEvent.namaSuplier) }
+        var expanded by remember { mutableStateOf(false) }
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = selectedSuplier,
+            onValueChange = {},
+            label = { Text("Nama Suplier") },
+            placeholder = { Text("Pilih Nama Suplier") },
+            readOnly = true,
+            isError = errorState.namaSuplier != null,
+            trailingIcon = {
+                IconButton(onClick = { expanded = !expanded }) {
+                    Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "Dropdown")
+                }
+            }
+        )
+
+        // Menampilkan menu dropdown dengan list suplier
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            NamaSuplier.suplier.forEach { suplier ->
+                DropdownMenuItem(
+                    onClick = {
+                        // Mengupdate namaSuplier saat dipilih
+                        selectedSuplier = suplier
+                        onValueChange(barangEvent.copy(namaSuplier = suplier))
+                        expanded = false
+                    },
+                    text = { Text(suplier) }
+                )
+            }
+        }
 
     }
 }
