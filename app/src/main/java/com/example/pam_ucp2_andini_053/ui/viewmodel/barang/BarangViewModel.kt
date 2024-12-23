@@ -10,7 +10,11 @@ import com.example.pam_ucp2_andini_053.data.entity.Barang
 import com.example.pam_ucp2_andini_053.repository.RepositoryBrg
 import kotlinx.coroutines.launch
 
+class BarangViewModel (private val repositoryBrg: RepositoryBrg) : ViewModel() {
 
+
+
+}
 
 data class BrgUIState (
     val barangEvent: BarangEvent = BarangEvent(),
