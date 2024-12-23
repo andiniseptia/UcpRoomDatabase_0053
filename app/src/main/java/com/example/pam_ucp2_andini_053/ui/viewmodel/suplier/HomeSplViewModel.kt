@@ -38,7 +38,13 @@ class HomeSplViewModel (
                 )
             )
         }
-
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = HomeUiStateSpl(
+                isLoading = true,
+            )
+        )
 }
 
 data class HomeUiStateSpl (
