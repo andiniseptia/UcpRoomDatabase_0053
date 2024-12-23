@@ -18,6 +18,15 @@ class HomeBrgViewModel (
     private val repositoryBrg: RepositoryBrg
 ) : ViewModel() {
 
+    val homeUiStateBrg: StateFlow<HomeUiStateBrg> = repositoryBrg.getAllBarang()
+        .filterNotNull()
+        .map {
+            HomeUiStateBrg (
+                listBrg = it.toList(),
+                isLoading = false,
+            )
+        }
+
 }
 
 data class HomeUiStateBrg (
