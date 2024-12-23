@@ -14,6 +14,12 @@ import java.lang.Exception
 class SuplierViewModel (private val repositorySpl: RepositorySpl) : ViewModel() {
     var uiState by mutableStateOf(SplUIState())
 
+    fun updateState(suplierEvent: SuplierEvent) {
+        uiState = uiState.copy(
+            suplierEvent = suplierEvent,
+        )
+    }
+
 
 
 }
