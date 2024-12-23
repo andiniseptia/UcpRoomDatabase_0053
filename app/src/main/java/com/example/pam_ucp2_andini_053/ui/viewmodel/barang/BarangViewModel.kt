@@ -16,6 +16,12 @@ class BarangViewModel (private val repositoryBrg: RepositoryBrg) : ViewModel() {
 
     var uiState by mutableStateOf(BrgUIState())
 
+    fun updateState(barangEvent: BarangEvent) {
+        uiState = uiState.copy(
+            barangEvent = barangEvent,
+        )
+    }
+
 
 }
 
