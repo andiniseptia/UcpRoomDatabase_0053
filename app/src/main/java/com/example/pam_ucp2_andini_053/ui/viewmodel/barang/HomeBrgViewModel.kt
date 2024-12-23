@@ -14,6 +14,11 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 
+class HomeBrgViewModel (
+    private val repositoryBrg: RepositoryBrg
+) : ViewModel() {
+
+}
 
 data class HomeUiStateBrg (
     val listBrg: List<Barang> = listOf(),
