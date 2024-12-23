@@ -11,6 +11,15 @@ import com.example.pam_ucp2_andini_053.repository.RepositoryBrg
 import kotlinx.coroutines.launch
 
 
+data class BarangEvent (
+    val id: Int = 0,
+    val nama: String = "",
+    val deskripsi: String = "",
+    val harga: String = "",
+    val stok: String = "",
+    val namaSuplier: String = ""
+)
+
 data class FormErrorStateBrg (
     val nama: String? = null,
     val deskripsi: String? = null,
