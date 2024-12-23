@@ -57,6 +57,13 @@ class UpdateBrgViewModel (
         return errorState.isValid()
     }
 
+    fun updateData() {
+        val currentEvent = updateUIState.barangEvent
+        Log.d("UpdateBrgViewModel", "Updating data for ID: ${currentEvent.id}")
+
+
+    }
+
 
 }
 
