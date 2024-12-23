@@ -12,6 +12,9 @@ import kotlinx.coroutines.launch
 
 class BarangViewModel (private val repositoryBrg: RepositoryBrg) : ViewModel() {
 
+    private val suplier = NamaSuplier.suplier
+
+    var uiState by mutableStateOf(BrgUIState())
 
 
 }
