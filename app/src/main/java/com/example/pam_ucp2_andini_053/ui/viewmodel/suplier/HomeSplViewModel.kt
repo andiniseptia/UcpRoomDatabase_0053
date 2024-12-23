@@ -25,6 +25,10 @@ class HomeSplViewModel (
                 isLoading = false,
             )
         }
+        .onStart {
+            emit(HomeUiStateSpl(isLoading = true))
+            delay(900)
+        }
 
 }
 
