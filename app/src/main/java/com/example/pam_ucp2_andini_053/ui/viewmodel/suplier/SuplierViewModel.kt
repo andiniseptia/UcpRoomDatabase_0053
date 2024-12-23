@@ -50,7 +50,14 @@ class SuplierViewModel (private val repositorySpl: RepositorySpl) : ViewModel() 
                     )
                 }
             }
+        } else {
+            uiState = uiState.copy(
+                snackBarMessage = "Input tidak valid. Periksa kembali data anda."
+            )
         }
+    }
+
+
 
 }
 
