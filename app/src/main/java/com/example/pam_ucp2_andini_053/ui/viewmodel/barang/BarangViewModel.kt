@@ -11,6 +11,13 @@ import com.example.pam_ucp2_andini_053.repository.RepositoryBrg
 import kotlinx.coroutines.launch
 
 
+
+data class BrgUIState (
+    val barangEvent: BarangEvent = BarangEvent(),
+    val isEntryValid: FormErrorStateBrg = FormErrorStateBrg(),
+    val snackBarMessage: String? = null,
+)
+
 fun BarangEvent.toBarangEntity(): Barang = Barang (
     id = id,
     nama = nama,
