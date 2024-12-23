@@ -21,6 +21,8 @@ class DetailBrgViewModel (
     savedStateHandle: SavedStateHandle,
     private val repositoryBrg: RepositoryBrg,
 ) : ViewModel() {
+    private val _id: Int = checkNotNull(savedStateHandle[DestinasiDetailBarang.ID])
+
 
 }
 
