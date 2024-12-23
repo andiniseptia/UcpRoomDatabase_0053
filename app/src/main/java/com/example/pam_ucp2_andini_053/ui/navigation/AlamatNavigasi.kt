@@ -18,3 +18,10 @@ object DestinasiDetailBarang : AlamatNavigasi {
     val routesWithArg = "$route/{$ID}" // Rute ini membutuhkan argumen ID
 }
 
+object DestinasiUpdateBarang : AlamatNavigasi {
+    override val route = "update"
+    const val ID = "id"
+    val routesWithArg = "$route/{$ID}" // Rute ini membutuhkan argumen ID
+}
+
+
