@@ -26,6 +26,10 @@ class HomeBrgViewModel (
                 isLoading = false,
             )
         }
+        .onStart {
+            emit(HomeUiStateBrg(isLoading = true))
+            delay(900)
+        }
 
 }
 
