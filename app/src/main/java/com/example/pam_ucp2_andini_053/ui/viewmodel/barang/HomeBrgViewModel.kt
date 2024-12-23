@@ -39,7 +39,13 @@ class HomeBrgViewModel (
                 )
             )
         }
-
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = HomeUiStateBrg(
+                isLoading = true,
+            )
+        )
 }
 
 data class HomeUiStateBrg (
