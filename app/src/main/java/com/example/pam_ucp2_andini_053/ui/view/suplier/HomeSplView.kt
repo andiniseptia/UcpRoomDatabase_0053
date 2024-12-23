@@ -52,6 +52,60 @@ import com.example.pam_ucp2_andini_053.ui.viewmodel.PenyediaViewModel
 
 
 @Composable
+fun BodyHomeSplView(
+    homeUiStateSpl: HomeUiStateSpl,
+    onClick: (Int) -> Unit = { },
+    modifier: Modifier = Modifier
+) {
+    val coroutineScope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
+    when {
+        homeUiStateSpl.isLoading -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        }
+
+        homeUiStateSpl.isError -> {
+            LaunchedEffect (homeUiStateSpl.errorMessage) {
+                homeUiStateSpl.errorMessage?.let { message ->
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar(message)
+                    }
+                }
+            }
+        }
+
+        homeUiStateSpl.listSpl.isEmpty() -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Tidak ada data suplier.",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+        }
+        else -> {
+            ListSuplier(
+                listSpl = homeUiStateSpl.listSpl,
+                onClick = {
+                    onClick(it)
+                    println(it)
+                },
+                modifier = modifier
+            )
+        }
+    }
+}
+
+@Composable
 fun ListSuplier(
     listSpl: List<Suplier>,
     modifier: Modifier = Modifier,
