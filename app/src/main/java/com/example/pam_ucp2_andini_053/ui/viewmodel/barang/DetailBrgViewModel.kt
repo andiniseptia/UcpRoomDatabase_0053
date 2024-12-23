@@ -52,7 +52,13 @@ class DetailBrgViewModel (
             ),
         )
 
-
+    fun deleteBrg() {
+        detailUiState.value.detailUiEvent.toBarangEntity().let {
+            viewModelScope.launch {
+                repositoryBrg.deleteBarang(it)
+            }
+        }
+    }
 }
 
 data class DetailUiState(
