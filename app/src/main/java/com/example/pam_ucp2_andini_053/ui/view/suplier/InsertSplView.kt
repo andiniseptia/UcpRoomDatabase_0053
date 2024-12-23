@@ -39,7 +39,55 @@ object DestinasiInsertSpl : AlamatNavigasi {
     override val route: String = "insert_spl"
 }
 
+@Composable
+fun InsertSplView(
+    onBack: () -> Unit,
+    onNavigate: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: SuplierViewModel = viewModel(factory = PenyediaViewModel.Factory)
+) {
+    val uiState = viewModel.uiState
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
 
+    LaunchedEffect (uiState.snackBarMessage) {
+        uiState.snackBarMessage?.let { message ->
+            coroutineScope.launch {
+                snackbarHostState.showSnackbar(message)
+                viewModel.resetSnackBarMessage()
+            }
+        }
+    }
+
+    Scaffold (
+        topBar = {
+            TopAppBar(
+                onBack = onBack,
+                showBackButton = true,
+                judul = "Tambah Suplier",
+                modifier = modifier
+            )
+        },
+        modifier = modifier,
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
+    ) { padding ->
+        Column (
+            modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp)
+        ) {
+
+            InserBodySpl(
+                uiState = uiState,
+                onValueChange = { updatedEvent ->
+                    viewModel.updateState(updatedEvent)
+                },
+                onClick = {
+                    viewModel.saveData()
+                    onNavigate()
+                }
+            )
+        }
+    }
+}
 
 @Composable
 fun InserBodySpl (
