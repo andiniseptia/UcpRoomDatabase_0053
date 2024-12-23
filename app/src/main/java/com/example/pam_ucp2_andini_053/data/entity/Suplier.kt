@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "suplier")
 data class Suplier(
-    @PrimaryKey
-    val idSuplier: String,
+    @PrimaryKey(autoGenerate = true)
+    val idSuplier: Int = 0,
     val namaSuplier: String,
     val kontak: String,
     val alamat: String
