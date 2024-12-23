@@ -35,6 +35,15 @@ class DetailBrgViewModel (
             emit(DetailUiState(isLoading = true))
             delay(600)
         }
+        .catch {
+            emit(
+                DetailUiState(
+                    isLoading = false,
+                    isError = true,
+                    errorMessage = it.message ?: "terjadi kesalahan",
+                )
+            )
+        }
 
 }
 
