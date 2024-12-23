@@ -13,6 +13,12 @@ import java.lang.Exception
 
 
 
+fun SuplierEvent.toSuplierEntity(): Suplier = Suplier (
+    namaSuplier = namaSuplier,
+    kontak = kontak,
+    alamat = alamat
+)
+
 data class SuplierEvent (
     val id: Int = 0,
     val namaSuplier: String = "",
