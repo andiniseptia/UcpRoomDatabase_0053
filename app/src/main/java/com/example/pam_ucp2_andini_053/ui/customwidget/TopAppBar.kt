@@ -38,7 +38,6 @@ fun TopAppBar(
             .background(color = colorResource(id = R.color.primary)),
         contentAlignment = Alignment.Center
     ) {
-
         if (showBackButton) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -55,9 +54,20 @@ fun TopAppBar(
                     )
                 }
                 Spacer(modifier.weight(2f))
+
+                Box(
+                    modifier = Modifier
+                        .size(80.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(40.dp)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.lbaru),
+                        contentDescription = "",
+                        Modifier.size(55.dp)
+                    )
+                }
             }
         }
-
-
     }
 }
