@@ -24,4 +24,6 @@ object DestinasiUpdateBarang : AlamatNavigasi {
     val routesWithArg = "$route/{$ID}" // Rute ini membutuhkan argumen ID
 }
 
-
+object DestinasiHomeSuplier : AlamatNavigasi {
+    override val route = "homeSpl"
+}
