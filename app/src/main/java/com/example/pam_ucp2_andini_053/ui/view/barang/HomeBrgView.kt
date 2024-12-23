@@ -35,6 +35,124 @@ import com.example.pam_ucp2_andini_053.ui.viewmodel.PenyediaViewModel
 import com.example.pam_ucp2_andini_053.ui.viewmodel.barang.HomeBrgViewModel
 
 
+@Composable
+fun HomeBrgView(
+    viewModel: HomeBrgViewModel = viewModel(factory = PenyediaViewModel.Factory),
+    onAddBrg: () -> Unit = { },
+    onBack: () -> Unit = { },
+    onDetailClick: (Int) -> Unit = { },
+    modifier: Modifier = Modifier
+) {
+    Scaffold(
+       topBar = {
+           TopAppBar(
+               judul = "Daftar Barang",
+               showBackButton = true,
+               onBack = onBack,
+               modifier = modifier
+           )
+       },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = onAddBrg,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(16.dp),
+                containerColor = colorResource(id = R.color.primary),
+                contentColor = Color.White
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Tambah Barang"
+                )
+            }
+        }
+    ) { innerPadding ->
+        val homeUiStateBrg = viewModel.homeUiStateBrg.collectAsState().value
+
+        BodyHomeBrgView(
+            homeUiStateBrg = homeUiStateBrg,
+            onClick = { onDetailClick(it) },
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
+
+@Composable
+private fun BodyHomeBrgView(
+    homeUiStateBrg: HomeUiStateBrg,
+    onClick: (Int) -> Unit = { },
+    modifier: Modifier = Modifier
+) {
+    val coroutineScope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    when {
+        homeUiStateBrg.isLoading -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        }
+
+        homeUiStateBrg.isError -> {
+            LaunchedEffect(homeUiStateBrg.errorMessage) {
+                homeUiStateBrg.errorMessage?.let { message ->
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar(message)
+                    }
+                }
+            }
+        }
+
+        homeUiStateBrg.listBrg.isEmpty() -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Tidak ada data barang.",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+        }
+
+        else -> {
+            ListBarang(
+                listBrg = homeUiStateBrg.listBrg,
+                onClick = {
+                    onClick(it)
+                    println(it)
+                },
+                modifier = modifier
+            )
+        }
+    }
+}
+
+@Composable
+fun ListBarang(
+    listBrg: List<Barang>,
+    modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit = { }
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        items(
+            items = listBrg,
+            itemContent = { brg ->
+                CardBrg(
+                    brg = brg,
+                    onClick = { onClick(brg.id) }
+                )
+            }
+        )
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -114,6 +232,8 @@ fun CardBrg(
                     fontSize = 20.sp
                 )
             }
+
+
         }
     }
 }

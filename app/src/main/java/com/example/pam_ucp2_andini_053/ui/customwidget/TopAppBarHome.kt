@@ -68,17 +68,7 @@ fun TopAppBarHome(){
                     fontSize = 22.sp
                 )
             }
-            Box(
-                modifier = Modifier
-                    .size(80.dp)
-                    .background(color = Color.White, shape = RoundedCornerShape(40.dp)),
-                contentAlignment = Alignment.Center){
-                Image(
-                    painter = painterResource(id = R.drawable.lbaru),
-                    contentDescription = "",
-                    Modifier.size(55.dp)
-                )
-            }
+
         }
     }
 }
