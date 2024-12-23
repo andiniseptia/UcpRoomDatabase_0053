@@ -54,19 +54,40 @@ fun TopAppBar(
                     )
                 }
                 Spacer(modifier.weight(2f))
+            }
+        }
 
-                Box(
-                    modifier = Modifier
-                        .size(80.dp)
-                        .background(color = Color.White, shape = RoundedCornerShape(40.dp)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.lbaru),
-                        contentDescription = "",
-                        Modifier.size(55.dp)
-                    )
-                }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Spacer(modifier = Modifier.weight(1f))
+
+            Text(
+                text = judul,
+                color = Color.White,
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .padding(horizontal = 16.dp)
+            )
+
+            Spacer(modifier = Modifier.weight(0.2f))
+
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .background(color = Color.White, shape = RoundedCornerShape(40.dp)),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.lbaru),
+                    contentDescription = "",
+                    Modifier.size(55.dp)
+                )
             }
         }
     }
