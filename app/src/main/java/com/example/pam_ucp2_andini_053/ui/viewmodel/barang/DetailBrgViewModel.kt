@@ -31,15 +31,11 @@ class DetailBrgViewModel (
                 isLoading = false,
             )
         }
-
-
-    fun deleteBrg() {
-        detailUiState.value.detailUiEvent.toBarangEntity().let {
-            viewModelScope.launch {
-                repositoryBrg.deleteBarang(it)
-            }
+        .onStart {
+            emit(DetailUiState(isLoading = true))
+            delay(600)
         }
-    }
+
 }
 
 data class DetailUiState(
