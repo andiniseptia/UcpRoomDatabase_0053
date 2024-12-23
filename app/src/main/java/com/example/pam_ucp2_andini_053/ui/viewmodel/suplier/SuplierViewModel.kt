@@ -12,6 +12,14 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 
+
+data class SuplierEvent (
+    val id: Int = 0,
+    val namaSuplier: String = "",
+    val kontak: String = "",
+    val alamat: String = ""
+)
+
 data class  FormErrorStateSpl (
     val namaSuplier: String? = null,
     val kontak: String? = null,
