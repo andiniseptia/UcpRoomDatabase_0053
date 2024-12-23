@@ -16,7 +16,38 @@ import com.example.pam_ucp2_andini_053.ui.viewmodel.suplier.SuplierViewModel
 object PenyediaViewModel {
 
     val Factory = viewModelFactory {
-
+        initializer {
+            BarangViewModel(
+                tokoApp().containerApp.repositoryBrg
+            )
+        }
+        initializer {
+            HomeBrgViewModel(
+                tokoApp().containerApp.repositoryBrg
+            )
+        }
+        initializer {
+            DetailBrgViewModel(
+                createSavedStateHandle(),
+                tokoApp().containerApp.repositoryBrg,
+            )
+        }
+        initializer {
+            UpdateBrgViewModel(
+                createSavedStateHandle(),
+                tokoApp().containerApp.repositoryBrg,
+            )
+        }
+        initializer {
+            SuplierViewModel(
+                tokoApp().containerApp.repositorySpl
+            )
+        }
+        initializer {
+            HomeSplViewModel(
+                tokoApp().containerApp.repositorySpl
+            )
+        }
     }
 }
 
