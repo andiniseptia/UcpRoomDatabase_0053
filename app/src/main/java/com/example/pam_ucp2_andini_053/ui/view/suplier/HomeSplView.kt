@@ -50,6 +50,28 @@ import com.example.pam_ucp2_andini_053.ui.customwidget.TopAppBar
 import com.example.pam_ucp2_andini_053.ui.viewmodel.PenyediaViewModel
 
 
+
+@Composable
+fun ListSuplier(
+    listSpl: List<Suplier>,
+    modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit = { }
+) {
+    LazyColumn (
+        modifier = modifier
+    ) {
+        items(
+            items = listSpl,
+            itemContent = { spl ->
+                CardSpl(
+                    spl = spl,
+                    onClick = { onClick(spl.idSuplier) }
+                )
+            }
+        )
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CardSpl(
