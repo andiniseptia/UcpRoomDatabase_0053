@@ -12,6 +12,11 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 
+data class SplUIState (
+    val suplierEvent: SuplierEvent = SuplierEvent(),
+    val isEntryValid: FormErrorStateSpl = FormErrorStateSpl(),
+    val snackBarMessage: String? = null,
+)
 
 fun SuplierEvent.toSuplierEntity(): Suplier = Suplier (
     namaSuplier = namaSuplier,
