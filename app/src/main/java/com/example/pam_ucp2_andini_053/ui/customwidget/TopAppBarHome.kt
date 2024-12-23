@@ -54,7 +54,19 @@ fun TopAppBarHome(){
                         .size(30.dp),
                     tint = Color.White
                 )
-
+                Spacer(modifier = Modifier.padding(5.dp))
+                Text(
+                    text = "Iventaris",
+                    modifier = Modifier.padding(end = 30.dp),
+                    color = Color.White,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    text = "Toko Serba Ada",
+                    color = Color.White,
+                    fontSize = 22.sp
+                )
             }
 
         }
