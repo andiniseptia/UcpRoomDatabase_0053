@@ -54,3 +54,16 @@ object DestinasiInsert : AlamatNavigasi {
     override val route: String = "insert_brg"
 }
 
+
+
+
+@Composable
+fun FormBarang(
+    barangEvent: BarangEvent = BarangEvent(),
+    onValueChange: (BarangEvent) -> Unit = {},
+    errorState: FormErrorStateBrg = FormErrorStateBrg(),
+    modifier: Modifier = Modifier
+) {
+
+
+}
