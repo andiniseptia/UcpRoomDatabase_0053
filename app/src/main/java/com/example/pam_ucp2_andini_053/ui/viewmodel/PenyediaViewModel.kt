@@ -13,5 +13,9 @@ import com.example.pam_ucp2_andini_053.ui.viewmodel.barang.UpdateBrgViewModel
 import com.example.pam_ucp2_andini_053.ui.viewmodel.suplier.HomeSplViewModel
 import com.example.pam_ucp2_andini_053.ui.viewmodel.suplier.SuplierViewModel
 
+object PenyediaViewModel {
+
+
+}
 
 fun CreationExtras.tokoApp(): TokoApp = (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as TokoApp)
