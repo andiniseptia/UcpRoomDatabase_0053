@@ -38,6 +38,7 @@ fun TopAppBar(
             .background(color = colorResource(id = R.color.primary)),
         contentAlignment = Alignment.Center
     ) {
+
         if (showBackButton) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
