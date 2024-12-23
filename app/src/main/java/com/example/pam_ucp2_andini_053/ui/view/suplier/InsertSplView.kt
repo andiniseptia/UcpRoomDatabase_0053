@@ -39,3 +39,62 @@ object DestinasiInsertSpl : AlamatNavigasi {
     override val route: String = "insert_spl"
 }
 
+
+@Preview(showBackground = true)
+@Composable
+fun FormSuplier(
+    suplierEvent: SuplierEvent = SuplierEvent(),
+    onValueChange: (SuplierEvent) -> Unit = {},
+    errorState: FormErrorStateSpl = FormErrorStateSpl(),
+    modifier: Modifier = Modifier
+) {
+    Column (
+        modifier = modifier.fillMaxWidth()
+    ) {
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = suplierEvent.namaSuplier,
+            onValueChange = {
+                onValueChange(suplierEvent.copy(namaSuplier = it))
+            },
+            label = { Text("Nama") },
+            isError = errorState.namaSuplier != null,
+            placeholder = { Text("Masukkan nama") }
+        )
+        Text(
+            text = errorState.namaSuplier ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = suplierEvent.alamat,
+            onValueChange = {
+                onValueChange(suplierEvent.copy(alamat = it))
+            },
+            label = { Text("Alamat") },
+            isError = errorState.alamat != null,
+            placeholder = { Text("Masukkan alamat") }
+        )
+        Text(
+            text = errorState.alamat ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = suplierEvent.kontak,
+            onValueChange = {
+                onValueChange(suplierEvent.copy(kontak = it))
+            },
+            label = { Text("Kontak") },
+            isError = errorState.kontak != null,
+            placeholder = { Text("Masukkan kontak") }
+        )
+        Text(
+            text = errorState.kontak ?: "",
+            color = Color.Red
+        )
+    }
+}
