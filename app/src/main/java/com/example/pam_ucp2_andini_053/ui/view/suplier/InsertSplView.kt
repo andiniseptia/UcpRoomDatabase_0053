@@ -40,6 +40,37 @@ object DestinasiInsertSpl : AlamatNavigasi {
 }
 
 
+
+@Composable
+fun InserBodySpl (
+    modifier: Modifier = Modifier,
+    onValueChange: (SuplierEvent) -> Unit,
+    uiState: SplUIState,
+    onClick: () -> Unit
+) {
+    Column (
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        FormSuplier(
+            suplierEvent = uiState.suplierEvent,
+            onValueChange = onValueChange,
+            errorState = uiState.isEntryValid,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Button(
+            onClick = onClick,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = colorResource(id = R.color.primary)
+            ),
+        ) {
+            Text("Simpan")
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun FormSuplier(
