@@ -17,7 +17,12 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
+class DetailBrgViewModel (
+    savedStateHandle: SavedStateHandle,
+    private val repositoryBrg: RepositoryBrg,
+) : ViewModel() {
 
+}
 
 data class DetailUiState(
     val detailUiEvent: BarangEvent = BarangEvent(),
