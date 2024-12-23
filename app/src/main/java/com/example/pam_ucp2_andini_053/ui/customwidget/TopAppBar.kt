@@ -31,5 +31,13 @@ fun TopAppBar(
     judul: String,
     modifier: Modifier,
 ) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 25.dp)
+            .background(color = colorResource(id = R.color.primary)),
+        contentAlignment = Alignment.Center
+    ) {
 
+    }
 }
