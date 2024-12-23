@@ -8,3 +8,8 @@ object DestinasiHome : AlamatNavigasi {
     override val route = "home"
 }
 
+object DestinasiHomeBarang : AlamatNavigasi {
+    override val route = "homeBrg"
+}
+
+
