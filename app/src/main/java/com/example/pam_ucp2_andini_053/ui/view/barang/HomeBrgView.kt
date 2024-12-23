@@ -43,5 +43,11 @@ fun CardBrg(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = { }
 ) {
+    val cardColor = when {
+        brg.stok.toIntOrNull() == 0 -> Color.Gray
+        brg.stok.toIntOrNull() in 1 ..10 -> colorResource(id = R.color.card1)
+        else -> colorResource(id = R.color.card11)
+    }
+
 
 }
