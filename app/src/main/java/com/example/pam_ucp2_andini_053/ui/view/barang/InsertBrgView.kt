@@ -98,6 +98,21 @@ fun FormBarang(
             color = Color.Red
         )
 
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = barangEvent.harga,
+            onValueChange = {
+                onValueChange(barangEvent.copy(harga = it))
+            },
+            label = { Text("Harga") },
+            isError = errorState.harga != null,
+            placeholder = { Text("Masukkan Harga") }
+        )
+        Text(
+            text = errorState.harga ?: "",
+            color = Color.Red
+        )
+
 
 
     }
