@@ -61,7 +61,9 @@ class BarangViewModel (private val repositoryBrg: RepositoryBrg) : ViewModel() {
         }
     }
 
-
+    fun resetSnackBarMessage() {
+        uiState = uiState.copy(snackBarMessage = null)
+    }
 }
 
 data class BrgUIState (
