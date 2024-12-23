@@ -30,6 +30,15 @@ class HomeBrgViewModel (
             emit(HomeUiStateBrg(isLoading = true))
             delay(900)
         }
+        .catch {
+            emit(
+                HomeUiStateBrg(
+                    isLoading = false,
+                    isError = false,
+                    errorMessage = it.message ?: "Terjadi kesalahan"
+                )
+            )
+        }
 
 }
 
