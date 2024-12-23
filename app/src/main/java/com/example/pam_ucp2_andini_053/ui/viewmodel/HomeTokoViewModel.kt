@@ -11,7 +11,17 @@ class HomeTokoViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(HomeTokoUiState())
     val uiState: StateFlow<HomeTokoUiState> = _uiState
 
+    fun navigateToBarang() {
+        _uiState.update { it.copy(navigateToBarang = true, navigateToSuplier = false) }
+    }
 
+    fun navigateToSuplier() {
+        _uiState.update { it.copy(navigateToBarang = false, navigateToSuplier = true) }
+    }
+
+    fun resetNavigation() {
+        _uiState.update { it.copy(navigateToBarang = false, navigateToSuplier = false) }
+    }
 }
 
 data class HomeTokoUiState(
