@@ -17,6 +17,14 @@ class HomeSplViewModel (
     private val repositorySpl: RepositorySpl
 ) : ViewModel() {
 
+    val homeUiStateSpl: StateFlow<HomeUiStateSpl> = repositorySpl.getAllSuplier()
+        .filterNotNull()
+        .map {
+            HomeUiStateSpl (
+                listSpl = it.toList(),
+                isLoading = false,
+            )
+        }
 
 }
 
