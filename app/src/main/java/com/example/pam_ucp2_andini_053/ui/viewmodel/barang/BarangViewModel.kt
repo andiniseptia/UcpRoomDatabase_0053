@@ -11,6 +11,15 @@ import com.example.pam_ucp2_andini_053.repository.RepositoryBrg
 import kotlinx.coroutines.launch
 
 
+fun BarangEvent.toBarangEntity(): Barang = Barang (
+    id = id,
+    nama = nama,
+    deskripsi = deskripsi,
+    harga = harga,
+    stok = stok,
+    namaSuplier = namaSuplier
+)
+
 data class BarangEvent (
     val id: Int = 0,
     val nama: String = "",
