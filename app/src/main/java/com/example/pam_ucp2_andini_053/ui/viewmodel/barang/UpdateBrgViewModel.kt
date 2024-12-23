@@ -28,6 +28,15 @@ class UpdateBrgViewModel (
 
     private val _id: Int = checkNotNull(savedStateHandle[DestinasiUpdateBarang.ID])
 
+    init {
+        viewModelScope.launch {
+            updateUIState = repositoryBrg.getBarang(_id)
+                .filterNotNull()
+                .first()
+                .toUIStateBrg()
+        }
+    }
+
 
 }
 
